@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation Example</title>
+  
+  <style>
+    .highlight {
+  background-color: yellow;
+}
+
+  </style>
+  
+</head>
+<body>
+    <h1 id="title">Original Title</h1>
+    <div id="container">
+      <p>Paragraph 1</p>
+      <p>Paragraph 2</p>
+      <p>Paragraph 3</p>
+      <button id="changeButton">Click </button>
+    </div>
+    <script>
+      // Listen for the "click" event on the button
+      document.getElementById("changeButton").addEventListener("click", function() {
+        // i) Select an element with a specific ID and change its content, text content, style properties, or class names
+        const titleElement = document.getElementById("title");
+        titleElement.innerHTML = "New Title";
+        titleElement.style.color = "blue";
+        titleElement.style.fontSize = "24px";
+        titleElement.classList.add("highlight");
+  
+        // ii) Select all elements with a specific tag name and iterate through them, changing a common property like background color
+        const paragraphs = document.getElementsByTagName("p");
+        for (let i = 0; i < paragraphs.length; i++) {
+          paragraphs[i].style.backgroundColor = "lightblue";
+        }
+  
+        // iii) Create a new element and set its text content. Then, append it to an existing element with an ID or another way to identify the parent container
+        const newItem = document.createElement("li");
+        newItem.textContent = "New List Item";
+        const container = document.getElementById("container");
+        container.appendChild(newItem);
+      });
+    </script>
+  </body>
+  </html>
